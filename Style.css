@@ -1,0 +1,83 @@
+/* --- Estilização Geral --- */
+body {
+    /* Remove margens e padding padrão para evitar bordas brancas */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Cor de fundo suave */
+    color: #333; /* Cor do texto legível */
+    font-family: Arial, sans-serif; /* Fonte sem serifa */
+    line-height: 1.6; /* Aumenta o espaçamento entre as linhas */
+}
+
+/* Contêiner para o conteúdo principal, adiciona espaçamento lateral */
+.container {
+    padding: 20px;
+}
+
+/* --- Títulos --- */
+h1 {
+    color: #005f73;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+h2 {
+    color: #0a9396;
+    font-size: 1.8em;
+    border-bottom: 2px solid #0a9396;
+    padding-bottom: 5px;
+}
+
+/* --- Listas --- */
+ol, ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* Estilo para a lista de hobbies (se forem ul) */
+ul {
+    list-style-type: circle;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* --- Links --- */
+a {
+    color: #0077b6;
+    text-decoration: none; /* Remove o sublinhado */
+    margin-right: 15px;
+}
+
+a:hover {
+    color: #00b4d8;
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: #000; /* Fundo preto para cobrir tudo */
+    color: #fff; /* Texto claro */
+    text-align: center;
+    padding: 20px; /* Espaçamento interno */
+    width: 100%; /* Ocupa 100% da largura */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+}
+
+/* Estilo da foto de perfil */
+.profile-pic {
+    width: 100px; /* Altere a largura da foto */
+    height: 100px; /* Altere a altura da foto */
+    border-radius: 50%; /* Mantém a foto redonda */
+    object-fit: cover;
+    border: 3px solid #0077b6;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Esta linha centraliza o conteúdo */
+    gap: 20px;
+    margin-bottom: 20px;
+}
