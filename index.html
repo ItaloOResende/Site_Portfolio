@@ -1,37 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style.css">
-    <title>Document</title>
+    <title>Meu Portfólio Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header-content">
-            <h1>Oi, meu nome é Italo</h1>
-            <img src="https://sketchok.com/images/articles/01-cartoons/042-bojack/03/10.jpg" alt="Foto de Italo" class="profile-pic">
+
+    <header>
+        <a href="#suporte">Suporte</a>
+        <a href="#sistemas">Sistemas</a>
+        <a href="#games">Games</a>
+        <a href="#contato">Contato</a>
+    </header>
+
+    <section id="suporte" class="secao-full">
+        <h2 class="titulo-sessao">Suporte Técnico e Manutenção</h2>
+        
+        <div class="carrossel-fotos">
+            <img src="imagens/suporte/computador_aberto.png" class="foto-fundo ativa" alt="Manutenção">
+            <img src="imagens/suporte/notebook_aberto.png" class="foto-fundo" alt="Manutenção">
         </div>
-        <h2>Meus objetivos profissionais</h2>
-        <ol>Me tornar um programador</ol>
-        <ol>Abrir minha emnpresa de tecnologia</ol>
-        <ol>Ganhar dinheiro com jogos</ol>
 
-        <h2>Campos de estudo</h2>
-        <ol>Desenvolvimento Web (html, css, php e javascript</ol>
-        <ol>Desenvolvimento de jogos (unity e C#)</ol>
-        <ol>Desenvolvimento de softwares (java e mysql)</ol>
+        <div class="overlay-texto">
+            <p>Formatação completa com backup, instalação de programas e sistemas (Windows/Linux), limpeza interna preventiva, 
+            troca de pasta térmica e upgrades de hardware (SSD/RAM). Foco em deixar sua máquina rápida, segura e pronta para o uso.</p>
+        </div>
 
-        <h2>Hobbies</h2>
-        <ol>Jogos online</ol>
-        <ol>Eventos presenciais de cultura geek</ol>
+        <button class="seta-ctrl esq" onclick="mudarFoto(-1)">&#10094;</button>
+        <button class="seta-ctrl dir" onclick="mudarFoto(1)">&#10095;</button>
+    </section>
+<section id="sistemas" class="secao-full">
+    <h2 class="titulo-sessao">Desenvolvimento de Sistemas</h2>
 
-        <a href= "https://www.youtube.com/@GamesIndie">Canal do youtube sobre desenvolvimento de jogos</a>
-        <a href="https://s2-techtudo.glbimg.com/UbybdGzvEXZZ5N7JAKuIjno-Nko=/0x0:1200x675/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2024/M/g/BwseAZR62bVPcEurhkmw/23121307435010.webp" target = blank>foto</a>
+    <div class="menu-filtros">
+        <button class="btn-filtro ativo" onclick="filtrarSistema('academia', this)">Gerenciador de Academia</button>
+        <button class="btn-filtro" onclick="filtrarSistema('chamados', this)">Sistema de Chamados</button>
+        <button class="btn-filtro" onclick="filtrarSistema('estoque', this)">Gestão de Equipamentos</button>
     </div>
+    
+    <div class="wrapper-sistemas">
+        <button class="seta-ctrl esq" onclick="mudarFotoSistemas(-1)">&#10094;</button>
+
+        <div class="conteudo-principal-sistemas">
+            <div class="area-foto">
+                <img src="imagens/sistemas/academia_home.png" id="img-display-sistema" alt="Academia">
+            </div>
+
+            <div class="area-texto">
+                <p id="desc-sistema-display">
+                    Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
+                </p>
+            </div>
+        </div>
+
+        <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
+    </div>
+</section>
+    <section id="games" class="secao-full">
+        <h2 class="titulo-sessao">Criação de Games</h2>
+        <div class="overlay-texto">
+            <p>Área em desenvolvimento. Em breve, meus principais projetos de jogos aqui.</p>
+        </div>
+    </section>
 
     <footer>
         <p>© Todos os direitos reservados Italo Oliveira Resende</p>
     </footer>
+
 </body>
 </html>
