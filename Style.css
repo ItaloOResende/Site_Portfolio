@@ -229,7 +229,7 @@ footer {
 }
 
 #resumo-sistema {
-    color: #bbb; /* Um cinza claro para diferenciar do título */
+    color: #ffffff; /* Branco para diferenciar do fundo */
     font-size: 1.1rem;
     font-style: italic;
     line-height: 1.4;
