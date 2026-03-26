@@ -122,11 +122,24 @@ const bancoSistemas = {
                 ] 
             },
             { 
-                img: 'imagens/sistemas/sistema de chamados/abrirEatualizar_chamados.png', 
+                img: 'imagens/sistemas/sistema de chamados/clientesETecnicos_cadastrados.png', 
                 topicos: [
-                    'Abrir e editar chamados.',
-                    'Atribuir técnicos e definir prioridades.',
-                    'Detalhar problema e descrever solução técnica.'
+                    'Visualização dos clientes e técnicos cadastrados.',
+                    'Exclusão de clientes e técnicos.',
+                ] 
+            },
+            { 
+                img: 'imagens/sistemas/sistema de chamados/cadastro_de_clientesEtecnicos.png', 
+                topicos: [
+                    'Cadastro de clientes e técnicos.',
+                    'Verificação de campos obrigatórios preenchidos.',
+                ] 
+            },
+            { 
+                img: 'imagens/sistemas/sistema de chamados/editar_clienteEtecnico.png', 
+                topicos: [
+                    'Editar dados de clientes e técnicos.',
+                    'Verificação de campos obrigatórios preenchidos.',
                 ] 
             }
         ]
