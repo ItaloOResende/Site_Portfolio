@@ -24,135 +24,93 @@ function mudarFoto(n) {
 const bancoSistemas = {
     'academia': {
         resumoGeral: 'Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.',
+        linkGithub: 'https://github.com/ItaloOResende/GerenciadorDeAcademia',
         fotos: [
             { 
                 img: 'imagens/sistemas/gerenciador de academia/cadastro de alunos.png', 
-                topicos: [
-                    'Cadastro e atualização de dados de alunos',
-                    'Pesquise por qualquer campo de texto da tela.',
-                    'Filtros rápidos por dia, professor e modalidade.',
-                    'Visualização do tamanho da turma e vagas disponíveis.'
-                ] 
+                topicos: ['Cadastro e atualização de dados de alunos','Pesquise por qualquer campo de texto da tela.','Filtros rápidos por dia, professor e modalidade.','Visualização do tamanho da turma e vagas disponíveis.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de academia/cadastro de turmas.png', 
-                topicos: [
-                    'Cadastro de novas modalidades e professores.',
-                    'Criação e atualização de turmas.',
-                    'Visualização de todas as turmas cadastradas'
-                ] 
+                topicos: ['Cadastro de novas modalidades e professores.','Criação e atualização de turmas.','Visualização de todas as turmas cadastradas'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de academia/folha de pagamento.png', 
-                topicos: [
-                    'Cadastro de mensalidades recebidas.',
-                    'Cadastro de despesas pagas.',
-                    'Cálculo de lucro recebido.'
-                ] 
+                topicos: ['Cadastro de mensalidades recebidas.','Cadastro de despesas pagas.','Cálculo de lucro recebido.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de academia/fila de espera.png', 
-                topicos: [
-                    'Visualização da lista de espera de alunos para as vagas.',
-                    'Processamento imediato que retira o aluno da espera e atualiza o total da turma.'
-                ] 
+                topicos: ['Visualização da lista de espera de alunos para as vagas.','Processamento imediato que retira o aluno da espera e atualiza o total da turma.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de academia/ex alunos.png', 
-                topicos: [
-                    'Visualização da lista de ex alunos.',
-                    'Processamento imediato que recadastra o ex aluno na lista de alunos ativos.'
-                ] 
+                topicos: ['Visualização da lista de ex alunos.','Processamento imediato que recadastra o ex aluno na lista de alunos ativos.'] 
             }
-        ]
+        ],
     },
     'clinica': {
         resumoGeral: 'Gerenciador hospitalar focado em agendamento de consultas, prontuário médico e controle de fluxo de caixa.',
+        linkGithub: 'https://github.com/ItaloOResende/GerenciadorDeClinica',
         fotos: [
             { 
                 img: 'imagens/sistemas/gerenciador de clinica/marcacao_de_consultas.png', 
-                topicos: [
-                    'Cadastro e atualização de dados de pacientes.',
-                    'Marcação de novas consultas.',
-                    'Visualização de horários preenchidos.',
-                ] 
+                topicos: ['Cadastro e atualização de dados de pacientes.','Marcação de novas consultas.','Visualização de horários preenchidos.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de clinica/relatorio_medico.png', 
-                topicos: [
-                    'Visualização da agenda de consultas.',
-                    'Campo para descrição da consulta.',
-                    'Pesquisa por pacientes, data ou relatório médico.',
-                ] 
+                topicos: ['Visualização da agenda de consultas.','Campo para descrição da consulta.','Pesquisa por pacientes, data ou relatório médico.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de clinica/cadastro_de_usuarios.png', 
-                topicos: [
-                    'Cadastro de diferentes tipos de usuários.',
-                    'Privilégios diferentes por tipo de usuário.',
-                    'Visualização dos usuários cadastrados no sistema.'
-                ] 
+                topicos: ['Cadastro de diferentes tipos de usuários.','Privilégios diferentes por tipo de usuário.','Visualização dos usuários cadastrados no sistema.'] 
             },
             { 
                 img: 'imagens/sistemas/gerenciador de clinica/fechamento_de_caixa.png', 
-                topicos: [
-                    'Preenchimento de lucros e gastos.',
-                    'Visualização de lucros e gastos diários, semanais e anuais.',
-                ] 
+                topicos: ['Preenchimento de lucros e gastos.','Visualização de lucros e gastos diários, semanais e anuais.'] 
             }
         ]
     },
     'chamados': {
         resumoGeral: 'Plataforma de Help Desk para abertura de tickets, atribuição de técnicos e monitoramento de soluções.',
+        linkGithub: 'https://github.com/ItaloOResende/SistemaDeChamados',
         fotos: [
             { 
                 img: 'imagens/sistemas/sistema de chamados/painel_de_chamados.png', 
-                topicos: [
-                    'Visualização de todos os chamados feitos.',
-                    'Filtrar por id, empresa, técnico, data ou status.',
-                    'Selecionar chamados para ver mais detalhes'
-                ] 
+                topicos: ['Visualização de todos os chamados feitos.','Filtrar por id, empresa, técnico, data ou status.','Selecionar chamados para ver mais detalhes'] 
             },
             { 
                 img: 'imagens/sistemas/sistema de chamados/abrirEatualizar_chamados.png', 
-                topicos: [
-                    'Abrir e editar chamados.',
-                    'Atribuir técnicos e definir prioridades.',
-                    'Detalhar problema e descrever solução técnica.'
-                ] 
+                topicos: ['Abrir e editar chamados.','Atribuir técnicos e definir prioridades.','Detalhar problema e descrever solução técnica.'] 
             },
             { 
                 img: 'imagens/sistemas/sistema de chamados/clientesETecnicos_cadastrados.png', 
-                topicos: [
-                    'Visualização dos clientes e técnicos cadastrados.',
-                    'Exclusão de clientes e técnicos.',
-                ] 
+                topicos: ['Visualização dos clientes e técnicos cadastrados.','Exclusão de clientes e técnicos.'] 
             },
             { 
                 img: 'imagens/sistemas/sistema de chamados/cadastro_de_clientesEtecnicos.png', 
-                topicos: [
-                    'Cadastro de clientes e técnicos.',
-                    'Verificação de campos obrigatórios preenchidos.',
-                ] 
+                topicos: ['Cadastro de clientes e técnicos.','Verificação de campos obrigatórios preenchidos.'] 
             },
             { 
                 img: 'imagens/sistemas/sistema de chamados/editar_clienteEtecnico.png', 
-                topicos: [
-                    'Editar dados de clientes e técnicos.',
-                    'Verificação de campos obrigatórios preenchidos.',
-                ] 
+                topicos: ['Editar dados de clientes e técnicos.','Verificação de campos obrigatórios preenchidos.'] 
             }
         ]
     },
     'estoque': {
         resumoGeral: 'Sistema de controle de inventário, monitoramento de hardware e gestão de equipamentos de TI.',
+        linkGithub: 'https://github.com/ItaloOResende/Cadastro_de_equipamentos',
         fotos: [
             { 
-                img: 'imagens/sistemas/estoque1.png', 
-                topicos: [
-                    'Controle de entrada e saída de equipamentos.',
-                    'Histórico de movimentação de peças.'
-                ] 
+                img: 'imagens/sistemas/cadastro de equipamentos/equipamentos_cadastrados.png', 
+                topicos: ['Visualização dos equipamentos cadastrados.','Filtros de busca por equipamentos.','Quantidade total de equipamentos.','Botões para mudar a situação do equipamento.','Geração de termo de empréstimo.'] 
+            },
+            { 
+                img: 'imagens/sistemas/cadastro de equipamentos/cadastrar_equipamentos.png', 
+                topicos: ['Cadastro de novos equipamentos com informações essenciais.'] 
+            },
+            {
+                img: 'imagens/sistemas/cadastro de equipamentos/editar_equipamentos.png', 
+                topicos: ['Editar informações de equipamentos cadastrados'] 
             }
         ]
     }
@@ -177,6 +135,15 @@ function filtrarSistema(id, elemento) {
     const resumoElemento = document.getElementById('resumo-sistema');
     if (resumoElemento) {
         resumoElemento.innerText = bancoSistemas[id].resumoGeral;
+    }
+
+    // ==========================================
+    // AQUI MUDA O LINK DO BOTÃO!
+    // ==========================================
+    const btnGithub = document.getElementById('btn-github-sistema');
+    if (btnGithub) {
+        // Ele vai lá no banco de dados, pega o linkGithub do ID clicado e troca o link
+        btnGithub.href = bancoSistemas[id].linkGithub;
     }
 
     // Estilo dos botões
@@ -207,5 +174,12 @@ function atualizarDisplay() {
 
 // 5. INICIALIZAÇÃO (Faz o site carregar os dados da Academia ao abrir)
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. Define o link do GitHub inicial (Academia) ANTES de mostrar
+    const btnGithub = document.getElementById('btn-github-sistema');
+    if (btnGithub) {
+        btnGithub.href = bancoSistemas['academia'].linkGithub;
+    }
+
+    // 2. Chama o display para carregar as fotos e tópicos
     atualizarDisplay();
 });

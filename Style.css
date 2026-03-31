@@ -47,6 +47,13 @@ header a:hover {
     border-top: 70px solid transparent; /* Cria um respiro invisível */
     margin-top: -70px; /* Puxa de volta para não criar buracos pretos */
     background-clip: padding-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20px;
+    overflow: hidden;
 }
 
 /* --- 4. SEÇÃO SUPORTE (FULL WIDTH / TELA CHEIA) --- */
@@ -167,15 +174,6 @@ footer {
     margin-top: 0; 
 }
 /*Área de sistemas*/
-#sistemas.secao-full {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    padding-top: 20px;
-    overflow: hidden;
-}
-
 /* 1. Topo fixo */
 #sistemas .sistemas-header {
     text-align: center;
@@ -187,6 +185,38 @@ footer {
     top: 20px; /* Bem próximo ao topo da seção */
     font-size: 2rem;
     z-index: 50;
+}
+
+/* --- AJUSTE DAS SETAS ESPECÍFICO DE SISTEMAS --- */
+/* Como mudamos o layout, as setas precisam parar de usar 'top: 50%' */
+#sistemas .seta-ctrl {
+    position: static !important;
+    transform: none !important;
+    font-size: 3rem;
+    padding: 30px 20px;
+    border-radius: 8px;
+}
+
+/* --- NOVO: Wrapper que segura as setas, foto e miolo (Texto) --- */
+/* Certifique-se de que essa div exista no seu HTML abraçando foto, texto e setas */
+.wrapper-sistemas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1;
+    padding: 0 50px;
+}
+
+/* Área central onde ficam a foto e o texto */
+.conteudo-principal-sistemas {
+    display: flex;
+    flex: 1;
+    height: 85%; /* Ajuste a altura da foto/texto aqui */
+    gap: 40px;
+    margin: 0 20px;
+    align-items: center;
+    justify-content: center; /* Centraliza a foto vertical no meio do espaço */
 }
 
 /* Container dos botões - Centralizado embaixo do título */
@@ -221,14 +251,14 @@ footer {
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
 
-.resumo-sistema-container {
+.resumo-container {
     width: 100%;
     text-align: center;
     margin-top: 125px; /* Puxa um pouco para perto dos botões */
     padding: 0 10%;
 }
 
-#resumo-sistema {
+#resumo-texto {
     color: #ffffff; /* Branco para diferenciar do fundo */
     font-size: 1.1rem;
     font-style: italic;
@@ -242,27 +272,6 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-}
-/* --- NOVO: Wrapper que segura as setas, foto e miolo (Texto) --- */
-/* Certifique-se de que essa div exista no seu HTML abraçando foto, texto e setas */
-.wrapper-sistemas {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    flex: 1;
-    padding: 0 50px;
-}
-
-/* Área central onde ficam a foto e o texto */
-.conteudo-principal-sistemas {
-    display: flex;
-    flex: 1;
-    height: 85%; /* Ajuste a altura da foto/texto aqui */
-    gap: 40px;
-    margin: 0 20px;
-    align-items: center;
-    justify-content: center; /* Centraliza a foto vertical no meio do espaço */
 }
 
 /* AREA DA FOTO - TRAVADO */
@@ -310,10 +319,25 @@ footer {
 
 /* AREA DO TEXTO (QUADRADO VERDE) - TRAVADO */
 .area-texto {
-    flex: 1; /* Ocupa o resto */
-    height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* FORÇA UM EMBAIXO DO OUTRO */
+    align-items: flex-start; /* ALINHA TUDO NA ESQUERDA */
+    justify-content: center;
+    height: 100%;
+}
+/*Ajuste no botão de download */
+.btn-download {
+    display: block; /* MUDA DE INLINE PARA BLOCO */
+    width: fit-content; /* LARGURA SE AJUSTA AO TEXTO */
+    margin-top: 25px; /* DÁ O ESPAÇO NECESSÁRIO PARA NÃO COLAR NAS FRASES */
+    
+    /* Repita seus estilos de cor aqui para garantir */
+    background-color: #007740;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 /* RECUPEREI SEU ESTILO ORIGINAL: Sombra e Peso */
@@ -329,14 +353,21 @@ footer {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     font-weight: 500; 
 }
+/*--------------------------------------*/
+/*----------Área de games---------------*/
+/*--------------------------------------*/
+#games .titulo-sessao {
+    top: 20px; /* Bem próximo ao topo da seção */
+    font-size: 2rem;
+    z-index: 50;
+}
 
 /* --- AJUSTE DAS SETAS ESPECÍFICO DE SISTEMAS --- */
 /* Como mudamos o layout, as setas precisam parar de usar 'top: 50%' */
-#sistemas .seta-ctrl {
+#games .seta-ctrl {
     position: static !important;
     transform: none !important;
     font-size: 3rem;
     padding: 30px 20px;
     border-radius: 8px;
 }
-

@@ -42,8 +42,8 @@
         <button class="btn-filtro" onclick="filtrarSistema('estoque', this)">Gestão de Equipamentos</button>
     </div>
 
-    <div class="resumo-sistema-container">
-        <p id="resumo-sistema">
+    <div class="resumo-container">
+        <p id="resumo-texto">
             Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.
         </p>
     </div>
@@ -60,18 +60,50 @@
                 <p id="desc-sistema-display">
                     Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
                 </p>
+                <a href="#" id="btn-github-sistema" target="_blank" class="btn-download">
+        Ver Projeto no GitHub
+    </a>
             </div>
         </div>
 
         <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
     </div>
 </section>
-    <section id="games" class="secao-full">
-        <h2 class="titulo-sessao">Criação de Games</h2>
-        <div class="overlay-texto">
-            <p>Área em desenvolvimento. Em breve, meus principais projetos de jogos aqui.</p>
+<section id="games" class="secao-full">
+    <h2 class="titulo-sessao">Desenvolvimento de Jogos</h2>
+
+    <div class="menu-filtros">
+        <button class="btn-filtro ativo" onclick="filtrarSistema('Memorias', this)">Memórias</button>
+        <button class="btn-filtro" onclick="filtrarSistema('MyCuteDestroyerOfWorlds', this)">My Cute Destroyer Of Worlds</button>
+    </div>
+
+    <div class="resumo-container">
+        <p id="resumo-texto">
+            Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.
+        </p>
+    </div>
+    
+    <div class="wrapper-sistemas">
+        <button class="seta-ctrl esq" onclick="mudarFotoSistemas(-1)">&#10094;</button>
+
+        <div class="conteudo-principal-sistemas">
+            <div class="area-foto">
+                <img src="imagens/sistemas/academia_home.png" id="img-display-sistema" alt="Academia">
+            </div>
+
+            <div class="area-texto">
+                <p id="desc-sistema-display">
+                    Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
+                </p>
+                <a href="#" id="btn-github-sistema" target="_blank" class="btn-download">
+        Ver Projeto no GitHub
+    </a>
+            </div>
         </div>
-    </section>
+
+        <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
+    </div>
+</section>
 
     <footer>
         <p>© Todos os direitos reservados Italo Oliveira Resende</p>
