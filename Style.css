@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
-body { 
-    font-family: sans-serif; 
-    background: #36513a; 
-    overflow-x: hidden; /* Evita barra de rolagem lateral */
+body {
+    background-color: #272b28 !important; 
+
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Se puder usar essa fonte, fica muito moderno */
 }
 
 /* 2. HEADER FIXO (Não muda) */
@@ -56,30 +57,153 @@ header a:hover {
     overflow: hidden;
 }
 
+/*Área da introdução do portfolio*/
+.hero-section {
+    min-height: 100vh; /* Faz a seção ocupar NO MÍNIMO a tela inteira */
+    height: 80vh; /* Ocupa quase a tela toda ao abrir */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    color: #007740; /* O seu verde esmeralda */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skills-tags span {
+    background: transparent;
+    color: #00a358;
+    padding: 8px 20px;
+    border-radius: 4px; /* Menos arredondado fica mais moderno */
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 163, 88, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.skills-tags span:hover {
+    background: #00a358;
+    color: #000;
+}
+
+/* Container das Redes */
+.hero-social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Botão Base */
+.btn-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; 
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.btn-social i {
+    font-size: 1.2rem; /* Ícone um pouco maior que o texto */
+}
+
+
+/* Cores específicas no hover para cada rede */
+.btn-social:hover {
+    transform: scale(1.1);    /* Dá um leve aumento de tamanho */
+    cursor: pointer;           /* Garante que apareça a "mãozinha" */
+}
+
+.btn-social:nth-child(1):hover { color: #0077b5; border-color: #0077b5; } /* LinkedIn Blue */
+.btn-social:nth-child(2):hover { color: #fff; border-color: #fff; }       /* GitHub White */
+.btn-social:nth-child(3):hover { color: #e1306c; border-color: #e1306c; } /* Insta Pink */
+.btn-social.whatsapp:hover { color: #25d366; border-color: #25d366; }    /* Whats Green */
+
+.btn-hero {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-hero.primary {
+    margin-top: 20px;
+    background-color: #007740;
+    color: white;
+}
+
+.btn-hero.secondary {
+    border: 1px solid #444;
+    color: white;
+}
+
+.btn-hero:hover {
+    transform: translateY(-5px); /* Efeito moderno de flutuar */
+    filter: brightness(1.2);
+}
+
 /* --- 4. SEÇÃO SUPORTE (FULL WIDTH / TELA CHEIA) --- */
 #suporte {
-    max-width: none !important;
     width: 100%;
-    height: 100vh; /* Ocupa 100% da altura da visão do navegador */
+    min-height: 100vh; /* Mantém a tela cheia se quiser, mas vamos alinhar no topo */
     margin: 0 !important;
     padding: 0 !important;
     position: relative;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Força os elementos um embaixo do outro */
     align-items: center;
-    border: none; /* Remove bordas que criam linhas */
+    justify-content: flex-start; /* ALINHA TUDO NO TOPO */
+    background-color: #0a0a0a !important;
 }
 
 .titulo-sessao {
     position: absolute;
-    top: 80px; /* Ajuste para ficar logo abaixo do seu menu preto */
+    top: 30px; /* Ajuste para ficar logo abaixo do seu menu preto */
     left: 50%;
     transform: translateX(-50%);
     z-index: 30;
-    color: #fff;
+    color: #007740;
     font-size: 2.2rem;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    text-align: center;
 }
 
 .foto-fundo {
@@ -258,7 +382,15 @@ footer {
     padding: 0 10%;
 }
 
-#resumo-texto {
+#resumo-sistema {
+    color: #ffffff; /* Branco para diferenciar do fundo */
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+#resumo-game {
     color: #ffffff; /* Branco para diferenciar do fundo */
     font-size: 1.1rem;
     font-style: italic;
@@ -325,7 +457,8 @@ footer {
     justify-content: center;
     height: 100%;
 }
-/*Ajuste no botão de download */
+
+/* 2. Ajuste no botão de download */
 .btn-download {
     display: block; /* MUDA DE INLINE PARA BLOCO */
     width: fit-content; /* LARGURA SE AJUSTA AO TEXTO */
@@ -338,6 +471,23 @@ footer {
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+}
+/*Ajuste no botão de download */
+.btn-projeto {
+    display: inline-block; /* Melhor que 'block' para não ocupar a largura toda da tela */
+    width: fit-content;
+    margin-top: 25px;
+    background-color: #007740;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    /* ADICIONE ESTAS DUAS LINHAS: */
+    position: relative; 
+    z-index: 10; 
+    cursor: pointer; /* Garante que a 'mãozinha' apareça */
 }
 
 /* RECUPEREI SEU ESTILO ORIGINAL: Sombra e Peso */

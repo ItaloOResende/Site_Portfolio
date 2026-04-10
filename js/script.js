@@ -131,26 +131,24 @@ function filtrarSistema(id, elemento) {
     projetoAtivo = id; 
     indexSistemas = 0; 
 
-    // Atualiza o texto do resumo (o texto cinza em cima das fotos)
+    // ATUALIZA O RESUMO (Texto cinza em cima das fotos)
     const resumoElemento = document.getElementById('resumo-sistema');
     if (resumoElemento) {
+        // Pega o resumoGeral do bancoSistemas baseado no id (academia, clinica, etc)
         resumoElemento.innerText = bancoSistemas[id].resumoGeral;
     }
 
-    // ==========================================
-    // AQUI MUDA O LINK DO BOTÃO!
-    // ==========================================
+    // ATUALIZA O LINK DO GITHUB
     const btnGithub = document.getElementById('btn-github-sistema');
     if (btnGithub) {
-        // Ele vai lá no banco de dados, pega o linkGithub do ID clicado e troca o link
         btnGithub.href = bancoSistemas[id].linkGithub;
     }
 
-    // Estilo dos botões
-    document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+    // Gerencia a cor dos botões
+    document.querySelectorAll('#sistemas .btn-filtro').forEach(btn => btn.classList.remove('ativo'));
     elemento.classList.add('ativo');
 
-    atualizarDisplay();
+    atualizarDisplay(); // Atualiza foto e tópicos
 }
 
 // 4. FUNÇÃO QUE ATUALIZA A TELA
@@ -172,14 +170,137 @@ function atualizarDisplay() {
     }
 }
 
-// 5. INICIALIZAÇÃO (Faz o site carregar os dados da Academia ao abrir)
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Define o link do GitHub inicial (Academia) ANTES de mostrar
-    const btnGithub = document.getElementById('btn-github-sistema');
-    if (btnGithub) {
-        btnGithub.href = bancoSistemas['academia'].linkGithub;
+// 1. VARIÁVEIS DE CONTROLE
+let gameAtivo = 'Memorias';
+let indexGames = 0;
+
+// 2. BANCO DE DADOS
+const bancoGames = {
+    'Memorias': {
+        resumoGeral: 'Um jogo de mistério e exploração focado em narrativa.',
+        // Sem linkGithub ou paginaDoProjeto aqui
+        topicosFixos: [
+            'Mecânicas de puzzle integradas à narrativa.',
+            'Cenários desenvolvidos com técnicas de pintura digital.'
+        ],
+        midias: [
+            { tipo: 'video', url: 'https://www.youtube.com/embed/5YAg_8iYk2w' }
+        ]
+    },
+    'MyCuteDestroyerOfWorlds': {
+        resumoGeral: 'Simulador de criação de um pet interdimensional.',
+        paginaDoProjeto: 'https://supernaturalstardust.itch.io/my-cute-destroyer-of-worlds',
+        topicosFixos: [
+                'Inspirado na estética PSX (PlayStation 1) com gráficos low-poly.',
+                'Impeça que a criatura se comunique com a zona primordial de vida e morte.',
+                'Explore cenários em primeira pessoa para procurar itens.',
+                'Desenvolvido em Unity e Blender para a Virtual Pet Jam.'
+        ],
+        midias: [
+            { tipo: 'foto', url: 'imagens/jogos/my_cute_destroyer_of_worlds/pet.png' },
+            { tipo: 'foto', url: 'imagens/jogos/my_cute_destroyer_of_worlds/alien.png' },
+            { tipo: 'foto', url: 'imagens/jogos/my_cute_destroyer_of_worlds/banheiro.png' },
+            { tipo: 'foto', url: 'imagens/jogos/my_cute_destroyer_of_worlds/supermercado.png' },
+            { tipo: 'foto', url: 'imagens/jogos/my_cute_destroyer_of_worlds/caixa.png' }
+        ]
+    }
+};
+
+// 3. FUNÇÕES DE DISPLAY E CONTROLE
+function atualizarDisplayGames() {
+    const jogo = bancoGames[gameAtivo];
+    const dados = jogo.midias[indexGames];
+    const container = document.getElementById('container-midia-game');
+    const txtContainer = document.getElementById('desc-game-display');
+    const setas = document.querySelectorAll('#games .seta-ctrl');
+
+    if (container && txtContainer) {
+        // Lógica das Setas
+        setas.forEach(seta => {
+            seta.style.display = jogo.midias.length <= 1 ? 'none' : 'flex';
+        });
+
+        // Troca de Mídia
+        if (dados.tipo === 'video') {
+            container.innerHTML = `<iframe width="100%" height="100%" src="${dados.url}?autoplay=0&rel=0" frameborder="0" allowfullscreen></iframe>`;
+        } else {
+            container.innerHTML = `<img src="${dados.url}" id="img-display-game" style="height: 60vh; object-fit: contain;">`;
+        }
+
+        // MONTA OS TÓPICOS
+        const htmlTopicos = jogo.topicosFixos.map(t => `<p class="topico-item">${t}</p>`).join('');
+        
+        // LÓGICA DO BOTÃO (SÓ APARECE SE TIVER LINK)
+        const linkFinal = jogo.paginaDoProjeto || jogo.linkGithub;
+        let htmlBotao = ""; // Começa vazio
+
+        if (linkFinal) {
+            const textoBotao = jogo.paginaDoProjeto ? 'Jogar no Itch.io' : 'Ver no GitHub';
+            htmlBotao = `
+                <div style="margin-top: 25px;">
+                    <a href="${linkFinal}" target="_blank" class="btn-projeto" style="display: inline-block;">
+                        ${textoBotao}
+                    </a>
+                </div>`;
+        }
+
+        // Coloca no HTML: Tópicos + Botão (que pode estar vazio)
+        txtContainer.innerHTML = htmlTopicos + htmlBotao;
+    }
+}
+
+function mudarFotoGames(n) {
+    const listaMidias = bancoGames[gameAtivo].midias;
+    indexGames = (indexGames + n + listaMidias.length) % listaMidias.length;
+    atualizarDisplayGames();
+}
+
+function filtrarGames(id, elemento) {
+    gameAtivo = id;
+    indexGames = 0;
+
+    const resumoElemento = document.getElementById('resumo-game');
+    if (resumoElemento) {
+        resumoElemento.innerText = bancoGames[id].resumoGeral;
     }
 
-    // 2. Chama o display para carregar as fotos e tópicos
-    atualizarDisplay();
+    const btnLink = document.getElementById('btn-github-game');
+    if (btnLink) {
+        const linkDestino = bancoGames[id].paginaDoProjeto || bancoGames[id].linkGithub;
+        
+        if (linkDestino) {
+            btnLink.href = linkDestino;
+            btnLink.style.display = "inline-block"; // <--- ISSO GARANTE QUE ELE APAREÇA
+            btnLink.innerText = bancoGames[id].paginaDoProjeto ? 'Jogar no Itch.io' : 'Ver no GitHub';
+        } else {
+            btnLink.style.display = "none"; // Esconde se não tiver link
+        }
+    }
+
+    document.querySelectorAll('#games .btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+    elemento.classList.add('ativo');
+
+    atualizarDisplayGames();
+}
+
+// 4. INICIALIZAÇÃO (SEMPRE NO FINAL DO ARQUIVO)
+document.addEventListener("DOMContentLoaded", () => {
+    // Inicializa Sistemas
+    if (typeof atualizarDisplay === "function") {
+        const btnGitSistema = document.getElementById('btn-github-sistema');
+        if (btnGitSistema) btnGitSistema.href = bancoSistemas[projetoAtivo].linkGithub;
+        atualizarDisplay();
+    }
+
+    // Inicializa Games
+    const btnGitGame = document.getElementById('btn-github-game');
+if (btnGitGame) {
+    // Busca o link correto logo de cara
+    btnGitGame.href = bancoGames[gameAtivo].paginaDoProjeto || bancoGames[gameAtivo].linkGithub;
+}
+    
+    const resumoGame = document.getElementById('resumo-game');
+    if (resumoGame) resumoGame.innerText = bancoGames[gameAtivo].resumoGeral;
+
+    atualizarDisplayGames(); 
 });

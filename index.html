@@ -5,18 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio Tech</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <a href="#suporte">Suporte</a>
         <a href="#sistemas">Sistemas</a>
-        <a href="#games">Games</a>
-        <a href="#contato">Contato</a>
+        <a href="#games">Jogos</a>
+        <a href="#suporte">Suporte</a>
     </header>
 
-    <section id="suporte" class="secao-full">
+<section id="home" class="hero-section">
+    <div class="hero-content">
+        <h1>Ítalo Oliveira</h1>
+        <h2>Software Developer & Especialista em TI</h2>
+        
+        <p class="hero-descricao">
+            Do hardware ao código. Unindo a precisão do suporte técnico à criatividade do desenvolvimento 
+            de sistemas e games. Soluções de tecnologia ponta a ponta.
+        </p>
+
+        <div class="skills-tags">
+            <span>#SoftwareDev</span>
+            <span>#GameDesign</span>
+            <span>#HardwareExpert</span>
+            <span>#Infraestrutura</span>
+        </div>
+
+    <div class="hero-social-links">
+        <a href="https://www.linkedin.com/in/italooresende/" target="_blank" class="btn-social"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/ItaloOResende" target="_blank" class="btn-social"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.instagram.com/italoliveires" target="_blank" class="btn-social"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="https://wa.me/5531984534766" target="_blank" class="btn-social whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+        <div class="hero-btns">
+            <a href="#games" class="btn-hero primary">Ver Portfólio</a>
+        </div>
+    </div>
+</section>
+<section id="sistemas" class="secao-full">
+    <h2 class="titulo-sessao">Desenvolvimento de Sistemas</h2>
+
+    <div class="menu-filtros">
+        <button class="btn-filtro ativo" onclick="filtrarSistema('academia', this)">Gerenciador de Academia</button>
+        <button class="btn-filtro" onclick="filtrarSistema('clinica', this)">Gerenciador de clinica</button>
+        <button class="btn-filtro" onclick="filtrarSistema('chamados', this)">Sistema de Chamados</button>
+        <button class="btn-filtro" onclick="filtrarSistema('estoque', this)">Gestão de Equipamentos</button>
+    </div>
+
+    <div class="resumo-container">
+        <p id="resumo-sistema">
+            Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.
+        </p>
+    </div>
+    
+    <div class="wrapper-sistemas">
+        <button class="seta-ctrl esq" onclick="mudarFotoSistemas(-1)">&#10094;</button>
+
+        <div class="conteudo-principal-sistemas">
+            <div class="area-foto">
+                <img src="imagens/sistemas/academia_home.png" id="img-display-sistema" alt="Academia">
+            </div>
+
+            <div class="area-texto">
+                <p id="desc-sistema-display">
+                    Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
+                </p>
+                <a href="#" id="btn-github-sistema" target="_blank" class="btn-projeto">
+        Ver Projeto no GitHub
+    </a>
+            </div>
+        </div>
+
+        <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
+    </div>
+</section>
+<section id="games" class="secao-full">
+    <h2 class="titulo-sessao">Desenvolvimento de Jogos</h2>
+
+    <div class="menu-filtros">
+        <button class="btn-filtro ativo" onclick="filtrarGames('Memorias', this)">Memórias</button>
+        <button class="btn-filtro" onclick="filtrarGames('MyCuteDestroyerOfWorlds', this)">My Cute Destroyer Of Worlds</button>
+    </div>
+
+    <div class="resumo-container">
+        <p id="resumo-game">
+            Um jogo ambientado pelas vanguardas europeias sobre a história de um pintor.
+        </p>
+    </div>
+    
+    <div class="wrapper-sistemas">
+        <button class="seta-ctrl esq" onclick="mudarFotoGames(-1)">&#10094;</button>
+
+        <div class="conteudo-principal-sistemas">
+            <div class="area-foto" id="container-midia-game">
+            </div>
+
+            <div class="area-texto">
+                <div id="desc-game-display">
+                    <p class="topico-item">Carregando detalhes...</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="seta-ctrl dir" onclick="mudarFotoGames(1)">&#10095;</button>
+    </div>
+</section>
+<section id="suporte" class="secao-full">
         <h2 class="titulo-sessao">Suporte Técnico e Manutenção</h2>
         
         <div class="carrossel-fotos">
@@ -31,80 +128,7 @@
 
         <button class="seta-ctrl esq" onclick="mudarFoto(-1)">&#10094;</button>
         <button class="seta-ctrl dir" onclick="mudarFoto(1)">&#10095;</button>
-    </section>
-<section id="sistemas" class="secao-full">
-    <h2 class="titulo-sessao">Desenvolvimento de Sistemas</h2>
-
-    <div class="menu-filtros">
-        <button class="btn-filtro ativo" onclick="filtrarSistema('academia', this)">Gerenciador de Academia</button>
-        <button class="btn-filtro" onclick="filtrarSistema('clinica', this)">Gerenciador de clinica</button>
-        <button class="btn-filtro" onclick="filtrarSistema('chamados', this)">Sistema de Chamados</button>
-        <button class="btn-filtro" onclick="filtrarSistema('estoque', this)">Gestão de Equipamentos</button>
-    </div>
-
-    <div class="resumo-container">
-        <p id="resumo-texto">
-            Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.
-        </p>
-    </div>
-    
-    <div class="wrapper-sistemas">
-        <button class="seta-ctrl esq" onclick="mudarFotoSistemas(-1)">&#10094;</button>
-
-        <div class="conteudo-principal-sistemas">
-            <div class="area-foto">
-                <img src="imagens/sistemas/academia_home.png" id="img-display-sistema" alt="Academia">
-            </div>
-
-            <div class="area-texto">
-                <p id="desc-sistema-display">
-                    Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
-                </p>
-                <a href="#" id="btn-github-sistema" target="_blank" class="btn-download">
-        Ver Projeto no GitHub
-    </a>
-            </div>
-        </div>
-
-        <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
-    </div>
 </section>
-<section id="games" class="secao-full">
-    <h2 class="titulo-sessao">Desenvolvimento de Jogos</h2>
-
-    <div class="menu-filtros">
-        <button class="btn-filtro ativo" onclick="filtrarSistema('Memorias', this)">Memórias</button>
-        <button class="btn-filtro" onclick="filtrarSistema('MyCuteDestroyerOfWorlds', this)">My Cute Destroyer Of Worlds</button>
-    </div>
-
-    <div class="resumo-container">
-        <p id="resumo-texto">
-            Software completo para gestão de matrículas, treinos e financeiro de academias de médio porte.
-        </p>
-    </div>
-    
-    <div class="wrapper-sistemas">
-        <button class="seta-ctrl esq" onclick="mudarFotoSistemas(-1)">&#10094;</button>
-
-        <div class="conteudo-principal-sistemas">
-            <div class="area-foto">
-                <img src="imagens/sistemas/academia_home.png" id="img-display-sistema" alt="Academia">
-            </div>
-
-            <div class="area-texto">
-                <p id="desc-sistema-display">
-                    Painel Principal: Gestão rápida de alunos ativos e mensalidades a vencer.
-                </p>
-                <a href="#" id="btn-github-sistema" target="_blank" class="btn-download">
-        Ver Projeto no GitHub
-    </a>
-            </div>
-        </div>
-
-        <button class="seta-ctrl dir" onclick="mudarFotoSistemas(1)">&#10095;</button>
-    </div>
-</section>
-
     <footer>
         <p>© Todos os direitos reservados Italo Oliveira Resende</p>
     </footer>
