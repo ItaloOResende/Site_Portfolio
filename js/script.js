@@ -304,3 +304,29 @@ if (btnGitGame) {
 
     atualizarDisplayGames(); 
 });
+
+//Botão pra voltar pro topo
+// Pega o botão
+const btnTop = document.getElementById("btnTop");
+
+// Quando o usuário rolar a página, verifica se mostra o botão
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    // Se desceu mais de 200px do topo
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btnTop.style.display = "block";
+    } else {
+        btnTop.style.display = "none";
+    }
+}
+
+// Quando clicar no botão, sobe para o topo
+btnTop.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Reforça a subida suave
+    });
+});
