@@ -235,7 +235,7 @@ function atualizarDisplayGames() {
         let htmlBotao = ""; // Começa vazio
 
         if (linkFinal) {
-            const textoBotao = jogo.paginaDoProjeto ? 'Jogar no Itch.io' : 'Ver no GitHub';
+            const textoBotao = jogo.paginaDoProjeto ? 'Ver página no Itch.io' : 'Ver no GitHub';
             htmlBotao = `
                 <div style="margin-top: 25px;">
                     <a href="${linkFinal}" target="_blank" class="btn-projeto" style="display: inline-block;">

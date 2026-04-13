@@ -117,6 +117,16 @@ header a:hover { color: #00a358; }
     justify-content: center;
 }
 
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;       /* Faz as tags descerem se não couberem */
+    justify-content: center;
+    gap: 10px;             /* Espaçamento entre elas */
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+}
+
 .skills-tags span {
     background: transparent;
     color: #00a358;
@@ -216,7 +226,7 @@ header a:hover { color: #00a358; }
 
 .titulo-sessao {
     position: absolute;
-    top: 30px; /* Ajuste para ficar logo abaixo do seu menu preto */
+    top: 80px; /* Ajuste para ficar logo abaixo do seu menu preto */
     left: 50%;
     transform: translateX(-50%);
     z-index: 30;
@@ -319,10 +329,16 @@ footer {
 }
 /*Área de sistemas*/
 /* 1. Topo fixo */
-#sistemas .sistemas-header {
-    text-align: center;
-    margin-bottom: 20px;
-    z-index: 100;
+.sistemas-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Empilha um embaixo do outro */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
 }
 
 #sistemas .titulo-sessao {
@@ -355,21 +371,21 @@ footer {
 /* Área central onde ficam a foto e o texto */
 .conteudo-principal-sistemas {
     display: flex;
-    flex-direction: row; /* Lado a lado no PC */
-    flex-wrap: wrap;     /* Quebra no celular ou zoom */
+    flex-direction: row; /* Lado a lado */
+    flex-wrap: wrap;     /* Quebra no celular */
+    align-items: flex-start; /* Alinha no topo */
     justify-content: center;
-    gap: 40px;
+    gap: 30px;           /* Espaço entre eles */
     width: 100%;
-    max-width: 1300px;
+    max-width: 1600px;   /* Aumentei para fotos grandes ficarem lindas */
     margin: 0 auto;
-    padding: 20px;
-    
-    /* MUDANÇA AQUI: Alinha no topo, não no centro */
-    align-items: flex-start; 
+    padding: 10px 20px;
+    align-items: flex-start;
 }
 
 /* Container dos botões - Centralizado embaixo do título */
 .menu-filtros {
+    flex-wrap: wrap;
     position: absolute;
     top: 85px; /* Ajustado para ficar logo abaixo do título "Desenvolvimento..." */
     left: 50%;
@@ -403,7 +419,8 @@ footer {
 .resumo-container {
     width: 100%;
     text-align: center;
-    margin-top: 125px; /* Puxa um pouco para perto dos botões */
+    margin-top: 50px !important; /* Diminuído de 125px para 20px */
+    margin-bottom: 30px !important; /* Espaço pequeno antes da foto/texto */
     padding: 0 10%;
 }
 
@@ -434,22 +451,28 @@ footer {
 /* AREA DA FOTO - TRAVADO */
 /* Container da Imagem Vertical */
 .area-foto {
-    flex: 1 1 300px;     /* Flexível, mas quebra se a tela for menor que 300px */
+    background-color: #111;
+    align-items: center;
+    border: 1px solid #222;
+    height: 60vh;
+    flex: 0 0 70%;       /* NÃO CRESCE, NÃO DIMINUI, É SEMPRE 70% */
+    max-width: 70%;      /* Garante a trava */
     display: flex;
     justify-content: center;
-    align-items: flex-start;
 }
 
-.area-foto img {
-    width: auto;         /* Deixa a largura se ajustar à altura */
-    max-width: 100%;     /* Mas nunca vaza para fora do container */
+.area-foto img, .area-foto video {
+    width: auto;         /* Deixa a largura livre para respeitar a altura */
+    max-width: 100%;     /* Não deixa estourar a lateral */
     
-    /* AQUI ESTÁ O SEGREDO: */
-    max-height: 65vh;    /* A foto nunca terá mais que 65% da altura da tela */
+    /* MUDANÇA CRUCIAL AQUI: */
+    /* 60vh significa 60% da altura da tela. Isso garante que o título, 
+       os filtros e o resumo caibam em cima sem precisar de scroll */
+    max-height: 60vh !important; 
     
+    object-fit: contain; /* Garante que o print inteiro seja visível dentro desse limite */
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    object-fit: contain;
 }
 
 /* Estilo para cada frase individual com sua própria borda */
@@ -468,15 +491,20 @@ footer {
 /* Remove a borda do container pai se ele ainda tiver uma */
 #desc-sistema-display {
     border-left: none !important;
+    flex-grow: 1; /* Faz esse container ocupar todo o espaço central */
 }
 
 /* AREA DO TEXTO (QUADRADO VERDE) - TRAVADO */
 .area-texto {
-    flex: 2;             /* Diz ao texto para usar o dobro do espaço da foto se houver */
-    min-width: 350px;
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-height: 60vh; /* Mesma altura máxima da foto para alinhar */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinha no topo */
+    justify-content: center; /* Centraliza os tópicos verticalmente */
+    align-items: flex-start;
+    padding: 10px 0;
+    position: relative;
 }
 
 /* 2. Ajuste no botão de download */
@@ -495,6 +523,7 @@ footer {
 }
 /*Ajuste no botão de download */
 .btn-projeto {
+    margin-top: auto; /* Empurra o botão para o final da div .area-texto */
     display: inline-block; /* Melhor que 'block' para não ocupar a largura toda da tela */
     width: fit-content;
     margin-top: 25px;
@@ -541,4 +570,9 @@ footer {
     font-size: 3rem;
     padding: 30px 20px;
     border-radius: 8px;
+}
+
+/* Faz o scroll parar um pouco antes para o header não cobrir o título */
+#sistemas, #games {
+    scroll-margin-top: 60px; 
 }
