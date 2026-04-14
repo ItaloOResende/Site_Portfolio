@@ -653,6 +653,11 @@ footer {
         margin-top: 0 !important;
         line-height: 1.2;
     }
+
+    .menu-filtros {
+        padding-top: 20px;
+    }
+
     /* 1. Reset do Wrapper (Garante fluxo horizontal para as setas/foto) */
 #sistemas .wrapper-sistemas, #games .wrapper-sistemas {
         display: block !important; /* Muda para block para as setas flutuarem */
@@ -723,6 +728,15 @@ footer {
     #sistemas .seta-ctrl.dir, #games .seta-ctrl.dir {
         margin-top: 70px;
     }
+
+    #desc-sistema-display, #desc-game-display {
+        flex-grow: 0 !important; /* Não deixa o texto esticar */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     /* 6. Texto: Desce para o final */
     .area-texto {
         flex: 0 0 100% !important;
@@ -765,8 +779,17 @@ footer {
     }
 
     /* 4. Respiro para o texto embaixo */
-    .area-texto {
-        margin-top: 25px !important;
+.area-texto {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important; /* Morre a altura fixa de 60vh do PC */
+        margin-top: 0 !important; /* Cola na foto */
+        padding: 0 !important;
+        
+        /* Importante: Mudar para flex-start pra colar no topo */
+        justify-content: flex-start !important; 
+        align-items: center;
+        text-align: center;
     }
 
     #suporte .seta-ctrl {
