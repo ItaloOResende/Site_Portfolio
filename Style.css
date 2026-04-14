@@ -282,20 +282,30 @@ header a:hover { color: #00a358; }
 
 /* Setas do Carrossel */
 .seta-ctrl {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 40;
-    background: rgba(255,255,255,0.1);
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* UNIDADE RESPONSIVA: O tamanho varia entre 1.5rem e 3rem */
+    font-size: clamp(1.5rem, 4vw, 3rem) !important; 
+    padding: clamp(10px, 2vw, 25px) !important;
+    
+    background: rgba(255, 255, 255, 0.05);
     color: #fff;
     border: none;
-    padding: 20px;
     cursor: pointer;
-    font-size: 2rem;
     transition: 0.3s;
+    z-index: 50;
+    flex-shrink: 0; /* Impede que a seta seja esmagada */
 }
 
-.seta-ctrl:hover { background: #007bff; }
+.seta-ctrl:hover {
+    color: #00a358;
+    background: rgba(255, 255, 255, 0.1);
+}
 .esq { left: 0; border-radius: 0 5px 5px 0; }
 .dir { right: 0; border-radius: 5px 0 0 5px; }
 
@@ -332,13 +342,13 @@ footer {
 .sistemas-header {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Empilha um embaixo do outro */
+    flex-direction: column; /* Força um embaixo do outro */
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-    position: relative;
-    z-index: 10;
+    gap: 15px;             /* Espaço uniforme entre os elementos */
+    padding: 20px 10px;
+    position: relative !important; /* GARANTE QUE NÃO É ABSOLUTE */
+    height: auto !important;
 }
 
 #sistemas .titulo-sessao {
@@ -385,14 +395,15 @@ footer {
 
 /* Container dos botões - Centralizado embaixo do título */
 .menu-filtros {
-    flex-wrap: wrap;
-    position: absolute;
-    top: 85px; /* Ajustado para ficar logo abaixo do título "Desenvolvimento..." */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 60;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;       /* Se não couber na largura, ele pula linha sozinho */
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
 /* Estilo dos Botões (Bonitinhos igual ao suporte) */
@@ -575,4 +586,192 @@ footer {
 /* Faz o scroll parar um pouco antes para o header não cobrir o título */
 #sistemas, #games {
     scroll-margin-top: 60px; 
+}
+
+/* --- ESTILO ESPECÍFICO PARA AS SETAS DE SUPORTE --- */
+#suporte .seta-ctrl {
+    position: absolute !important;
+    top: 50% !important; /* Centraliza na altura */
+    transform: translateY(-50%) !important;
+    width: 60px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.4); /* Fundo sutil para aparecer sobre a foto */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    z-index: 100; /* Garante que fique acima da foto e do texto */
+    transition: 0.3s;
+}
+
+#suporte .seta-ctrl:hover {
+    background: rgba(0, 119, 64, 0.7); /* Verde esmeralda no hover */
+    color: white;
+}
+
+/* Seta da Esquerda colada na quina esquerda */
+#suporte .seta-ctrl.esq {
+    left: 0 !important;
+    border-radius: 0 8px 8px 0; /* Arredonda só o lado de dentro */
+}
+
+/* Seta da Direita colada na quina direita */
+#suporte .seta-ctrl.dir {
+    right: 0 !important;
+    border-radius: 8px 0 0 8px; /* Arredonda só o lado de dentro */
+}
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTE GLOBAL (PC e Mobile) --- */
+    .hero-section {
+        /* 100vh (tela toda) menos 70px (altura do seu menu) */
+        min-height: calc(100vh - 70px); 
+        margin-top: 70px; /* Empurra a seção inteira para baixo do menu */
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        justify-content: flex-start; /* Alinha o conteúdo pelo topo se a tela for muito pequena */
+    }
+
+/* --- AJUSTE ESPECÍFICO MOBILE --- */
+    .hero-content h1 {
+        /* Garante que o nome não seja absolute e não flutue */
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        
+        font-size: clamp(2rem, 10vw, 3rem) !important; 
+        margin-top: 0 !important;
+        line-height: 1.2;
+    }
+    /* 1. Reset do Wrapper (Garante fluxo horizontal para as setas/foto) */
+#sistemas .wrapper-sistemas, #games .wrapper-sistemas {
+        display: block !important; /* Muda para block para as setas flutuarem */
+        width: 100%;
+        position: relative;
+        padding: 0 !important;
+    }
+
+    /* 2. O Conteúdo Principal agora empilha o Texto abaixo da Foto */
+.conteudo-principal-sistemas {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    /* 3. A Moldura da Foto: FLEXÍVEL NO MOBILE */
+    .area-foto {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        
+        /* MÁGICA: A MOLDURA PRETA GIGANTE SOME */
+        height: auto !important;  /* Moldura cresce conforme a foto */
+        min-height: auto !important;
+        
+        background-color: transparent !important; /* Remove o caixão preto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 4. A Imagem Real: TOMA CONTA DA TELA */
+    .area-foto img {
+        width: 100% !important; /* Foto ocupa toda a largura disponível */
+        height: auto !important; /* Mantém proporção */
+        
+        /* TIRA A TRAVA DE ALTURA: O print horizontal vai explodir para os lados */
+        max-height: none !important; 
+        
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    /* 5. Setas: Resized e Limpas */
+#sistemas .seta-ctrl, #games .seta-ctrl {
+        margin-top: 70px;
+        position: absolute !important;
+        top: 20%; /* Ajusta para ficarem no meio da altura da FOTO */
+        transform: translateY(-50%);
+        z-index: 100;
+        background: rgba(0,0,0,0.5) !important; /* Um fundinho ajuda a ver no mobile */
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Seta Esquerda colada na borda da foto */
+    #sistemas .seta-ctrl.esq, #games .seta-ctrl.esq {
+        margin-top: 70px;
+    }
+
+    /* Seta Direita colada na borda da foto */
+    #sistemas .seta-ctrl.dir, #games .seta-ctrl.dir {
+        margin-top: 70px;
+    }
+    /* 6. Texto: Desce para o final */
+    .area-texto {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        text-align: center;
+        align-items: center;
+        order: 2; /* Texto fica por último */
+    }
+
+    /* Tópicos sem a barra lateral feia */
+    .topico-item {
+        border-left: none;
+        border-bottom: 2px solid #007bff;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .btn-social:hover { transform: scale(1.1); }
+    .btn-social.whatsapp:hover { color: #25d366; border-color: #25d366; }
+
+    /* 1. Container de Mídia (Onde o vídeo/iframe moram) */
+    .area-foto, #container-midia-game {
+        position: relative !important;
+        width: 100% !important;
+        /* Aumentamos a largura ocupada para o vídeo não ficar um selo */
+        padding: 0 10px; 
+        min-height: 200px !important; /* Garante que o player tenha altura */
+        height: auto !important;
+        background: transparent !important;
+    }
+
+    /* 2. Ajuste do Iframe (Player do YouTube) */
+    .area-foto iframe, .area-foto video, .area-foto img {
+        width: 100% !important;
+        height: auto !important;
+        /* Proporção 16:9 para vídeos ficarem perfeitos */
+        aspect-ratio: 16 / 9; 
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    /* 4. Respiro para o texto embaixo */
+    .area-texto {
+        margin-top: 25px !important;
+    }
+
+    #suporte .seta-ctrl {
+        width: 40px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
 }
