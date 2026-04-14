@@ -52,7 +52,7 @@ Se você tem interesse em um projeto ou precisa de consultoria técnica em TI, e
 
 * **LinkedIn:** [https://www.linkedin.com/in/italooresende/]
 * **Gmail:** [italoliveira5@gmail.com]
-* **Para orçamentos, entre em contato via WhatsApp através do meu portfólio [https://italooresende.github.io/Site_Portfolio/]
+* Para orçamentos, entre em contato via WhatsApp através do meu portfólio [https://italooresende.github.io/Site_Portfolio/]
 
 ---
 Desenvolvido com ☕ por Ítalo Oliveira.
