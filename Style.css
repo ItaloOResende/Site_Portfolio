@@ -180,10 +180,10 @@ header a:hover { color: #00a358; }
     cursor: pointer;           /* Garante que apareça a "mãozinha" */
 }
 
-.btn-social:nth-child(1):hover { color: #0077b5; border-color: #0077b5; } /* LinkedIn Blue */
-.btn-social:nth-child(2):hover { color: #fff; border-color: #fff; }       /* GitHub White */
-.btn-social:nth-child(3):hover { color: #e1306c; border-color: #e1306c; } /* Insta Pink */
-.btn-social.whatsapp:hover { color: #25d366; border-color: #25d366; }    /* Whats Green */
+.btn-social:nth-child(1):hover { color: #0077b5; border-color: #0077b5; } /* LinkedIn azul */
+.btn-social:nth-child(2):hover { color: #fff; border-color: #fff; }       /* GitHub branco */
+.btn-social:nth-child(3):hover { color: #db4437; border-color: #db4437; } /* Gmail laranja */
+.btn-social.whatsapp:hover { color: #25d366; border-color: #25d366; }    /* Whats verde */
 
 .btn-hero {
     padding: 15px 30px;
@@ -488,7 +488,7 @@ footer {
 
 /* Estilo para cada frase individual com sua própria borda */
 .topico-item {
-    border-left: 5px solid #007740; /* Borda Azul Lateral */
+    border-left: 5px solid #007740; /* Borda verde Lateral */
     padding-left: 15px;
     margin-bottom: 15px; /* Espaço entre um tópico e outro */
     color: #fff;
@@ -748,10 +748,10 @@ footer {
 
     /* Tópicos sem a barra lateral feia */
     .topico-item {
-        border-left: none;
-        border-bottom: 2px solid #007740 ;
+        border-left: 5px solid #007740; /* Borda verde Lateral */
         padding-left: 0;
         text-align: center;
+        border-left: #007740;
     }
 
     .btn-social:hover { transform: scale(1.1); }
